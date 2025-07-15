@@ -2,8 +2,8 @@ const buttonEl = document.querySelector('#button');
 const inputEl = document.querySelector('input');
 
 buttonEl.addEventListener('click', () => {
-    // 
-    fetchOpenMeteo()
+    fetchNow()
+    // fetchOpenMeteo()
     // fetchPost()
 });
 
@@ -26,6 +26,16 @@ const fetchOpenMeteo = () => {
     const param3 = "visibility";
     const urlAdr = `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=${parametr}&hourly=${param2}&hourly=${param3}`;
     fetch(String(urlAdr))
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+        })
+        .catch((er) => console.log("Error: ", er))
+}
+
+const fetchNow = () => {
+    const urll = "http://ip-api.com/json/";
+    fetch(String(urll))
         .then((response) => response.json())
         .then((data) => {
             console.log(data)

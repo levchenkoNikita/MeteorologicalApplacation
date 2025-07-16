@@ -5,6 +5,9 @@ import AddCityLayer from "./UI/layers/AddCityLayer";
 const AddCity = () => {
     const [isActive, setIsActive] = useState(true);
 
+    function handleClick() {
+        setIsActive(!isActive);
+    }
 
     return (
         <div
@@ -13,7 +16,7 @@ const AddCity = () => {
                 bg-[url('./assets/images/addcity-back-button.png')]
                 flex items-center justify-center shrink-0 
             `}>
-            <AddCityButton />
+            <AddCityButton isActive={isActive} onClick={handleClick}/>
             <AddCityLayer isActive={isActive}/>
         </div>
     );

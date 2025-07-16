@@ -1,5 +1,6 @@
 import React from 'react';
 import BrowButton from './UI/buttons/BrowButton';
+import ChangeForecastTime from './ChangeForecastTime';
 
 const WeatherForecast = ({isActive, onClick}) => {
 
@@ -12,7 +13,11 @@ const WeatherForecast = ({isActive, onClick}) => {
                 ${isActive ? 'translate-y-[-702px]' : 'translate-y-[-325px]'}
             `}
         >
-            <BrowButton onClick={onClick}/>
+            <div className='w-full flex flex-col items-center gap-y-[15px] pb-[6px] border-b-[1px]'>
+                <BrowButton onClick={onClick}/>
+                <ChangeForecastTime />
+            </div>
+
         </div>
     );
 }

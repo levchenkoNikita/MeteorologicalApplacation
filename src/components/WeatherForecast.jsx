@@ -1,6 +1,7 @@
 import React from 'react';
 import BrowButton from './UI/buttons/BrowButton';
 import ChangeForecastTime from './ChangeForecastTime';
+import WeatherForecastList from './WeatherForecastList';
 
 const WeatherForecast = ({isActive, onClick}) => {
 
@@ -17,7 +18,9 @@ const WeatherForecast = ({isActive, onClick}) => {
                 <BrowButton onClick={onClick}/>
                 <ChangeForecastTime />
             </div>
-
+            <div>
+                <WeatherForecastList />
+            </div>
         </div>
     );
 }

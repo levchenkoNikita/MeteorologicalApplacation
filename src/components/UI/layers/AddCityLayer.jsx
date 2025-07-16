@@ -8,6 +8,7 @@ const AddCityLayer = ({ isActive, onClickAddCity }) => {
 
     function handleAddCity() {
         onClickAddCity(inputValue, true, isSaveCity);
+        setInputValue('');
     }
 
     function handleSaveCity() {
@@ -22,7 +23,7 @@ const AddCityLayer = ({ isActive, onClickAddCity }) => {
                 bg-violet-600 bg-[url('./assets/images/addcity-back-button.png')]
                 flex flex-col items-center justify-start shrink-0 duration-[0.7s]
             `}>
-                <LayerInput value={inputValue} onChange={(data) => setInputValue(data)}/>
+                <LayerInput value={inputValue} onChange={(city) => setInputValue(city)}/>
                 <LayerButton onClick={handleAddCity}>
                     Выбрать
                 </LayerButton>

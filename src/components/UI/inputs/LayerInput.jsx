@@ -20,7 +20,7 @@ const LayerInput = ({ value, onChange}) => {
             `}
                 placeholder="Search city..."
                 value={value}
-                onChange={() => onChange(value)}
+                onChange={(event) => onChange(event.target.value)}
             />
         </div>
     );

@@ -17,8 +17,8 @@ function App() {
     setIsGeolocation(!isGeolocation);
   }
 
-  function handleAddCity(valueInput, valueSelect, valueSave) {
-    setChangeCity({valueInput: valueInput, valueSelect: valueSelect, valueSave: valueSave});
+  function handleAddCity(valueI, valueSl, valueSv) {
+    setChangeCity({valueInput: valueI, valueSelect: valueSl, valueSave: valueSv});
   }
 
   useEffect(() => {

@@ -18,7 +18,7 @@ const Menu = ({ isGeolocation, onClickGeolocationButton, onClickAddCity }) => {
                 onClick={onClickGeolocationButton}
             />
             <AddCity
-                onClickAddCity={() => onClickAddCity(valueInput, valueSelect, valueSave)}
+                onClickAddCity={(valueInput, valueSelect, valueSave) => onClickAddCity(valueInput, valueSelect, valueSave)}
             />
             <SafeList />
         </div>

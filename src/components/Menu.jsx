@@ -8,8 +8,8 @@ const Menu = () => {
     return (
         <div
             className="
-                w-full h-[100px] bg-[#48319D] absolute 
-                top-full translate-y-[-100%] z-4
+                w-full h-[100px] bg-[#48319D] relative 
+                top-full translate-y-[-100%] z-100
                 flex items-end justify-between text-white
             "
         >

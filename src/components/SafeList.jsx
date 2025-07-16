@@ -3,7 +3,7 @@ import SafeListButton from './UI/buttons/SafeListButton';
 import SafeListLayer from './UI/layers/SafeListLayer';
 
 const SafeList = () => {
-    const [isActive, setIsActive] = useState(true);
+    const [isActive, setIsActive] = useState(false);
 
     function handleClick() {
         setIsActive(!isActive);

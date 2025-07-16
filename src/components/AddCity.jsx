@@ -3,7 +3,7 @@ import AddCityButton from "./UI/buttons/AddCityButton";
 import AddCityLayer from "./UI/layers/AddCityLayer";
 
 const AddCity = () => {
-    const [isActive, setIsActive] = useState(true);
+    const [isActive, setIsActive] = useState(false);
 
     function handleClick() {
         setIsActive(!isActive);

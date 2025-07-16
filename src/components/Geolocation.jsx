@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import GeolocationButton from './UI/buttons/GeolocationButton';
 
-const Geolocation = () => {
-    const [isActive, setIsActive] = useState(false);
+const Geolocation = ({isGeolocation, onClick}) => {
 
-    function handleClick() {
-        setIsActive(!isActive);
-    }
 
     return (
-        <GeolocationButton isActive={isActive} onClick={handleClick}/>
+        <GeolocationButton isActive={isGeolocation} onClick={onClick}/>
     );
 }
 

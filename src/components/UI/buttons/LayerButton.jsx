@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LayerButton = ({ isActive, isIcon, children }) => {
+const LayerButton = ({ isActive, isIcon, onClick, children }) => {
 
     return (
         <button
@@ -9,7 +9,9 @@ const LayerButton = ({ isActive, isIcon, children }) => {
                 flex items-center py-[7px] px-[16px] mt-[30px]
                 ${isIcon ? 'justify-between' : 'justify-center'}
                 ${isActive ? 'bg-blue-500' : 'bg-red-950 active:bg-blue-500'}
-            `}>
+            `}
+            onClick={onClick}
+            >
             {children}
             {isIcon
                 ? <div className='w-[20px] apsect-[1] flex justify-center items-center'>

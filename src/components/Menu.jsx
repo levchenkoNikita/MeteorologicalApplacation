@@ -3,7 +3,7 @@ import Geolocation from './Geolocation';
 import AddCity from './AddCity';
 import SafeList from './SafeList';
 
-const Menu = () => {
+const Menu = ({ isGeolocation, onClickGeolocationButton, onClickAddCity }) => {
 
     return (
         <div
@@ -13,8 +13,13 @@ const Menu = () => {
                 flex items-end justify-between text-white
             "
         >
-            <Geolocation />
-            <AddCity />
+            <Geolocation
+                isGeolocation={isGeolocation}
+                onClick={onClickGeolocationButton}
+            />
+            <AddCity
+                onClickAddCity={() => onClickAddCity(valueInput, valueSelect, valueSave)}
+            />
             <SafeList />
         </div>
     );

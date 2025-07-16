@@ -1,9 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 import LayerInput from "../inputs/LayerInput";
 import LayerButton from "../buttons/LayerButton";
 
-const AddCityLayer = ({isActive}) => {
-    
+const AddCityLayer = ({ isActive, onClickAddCity }) => {
+    const [inputValue, setInputValue] = useState('');
+    const [isSaveCity, setIsSaveCity] = useState(false);
+
+    function handleAddCity() {
+        onClickAddCity(inputValue, true, isSaveCity);
+    }
+
+    function handleSaveCity() {
+        setIsSaveCity(!isSaveCity);
+    }
 
     return (
         <div
@@ -13,11 +22,11 @@ const AddCityLayer = ({isActive}) => {
                 bg-violet-600 bg-[url('./assets/images/addcity-back-button.png')]
                 flex flex-col items-center justify-start shrink-0 duration-[0.7s]
             `}>
-                <LayerInput />
-                <LayerButton>
+                <LayerInput value={inputValue} onChange={(data) => setInputValue(data)}/>
+                <LayerButton onClick={handleAddCity}>
                     Выбрать
                 </LayerButton>
-                <LayerButton>
+                <LayerButton onClick={handleSaveCity}>
                     Добавить в избранное
                 </LayerButton>
         </div>
@@ -25,4 +34,3 @@ const AddCityLayer = ({isActive}) => {
 }
 
 export default AddCityLayer;
-// top-[-602px] -- раскрытие слоя

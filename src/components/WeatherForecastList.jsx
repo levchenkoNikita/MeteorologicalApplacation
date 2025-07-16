@@ -4,10 +4,10 @@ import ParametrsList from './UI/lists/ParametrsList';
 
 const WeatherForecastList = () => {
     return (
-        <div>
+        <>
             <WeatherList />
             <ParametrsList />
-        </div>
+        </>
     );
 }
 

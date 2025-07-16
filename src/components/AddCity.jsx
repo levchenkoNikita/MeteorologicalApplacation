@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import AddCityButton from "./UI/buttons/AddCityButton";
 import AddCityLayer from "./UI/layers/AddCityLayer";
 
-const AddCity = () => {
+const AddCity = ({ onClickAddCity }) => {
     const [isActive, setIsActive] = useState(false);
 
     function handleClick() {
@@ -17,7 +17,7 @@ const AddCity = () => {
                 flex items-center justify-center shrink-0 
             `}>
             <AddCityButton isActive={isActive} onClick={handleClick}/>
-            <AddCityLayer isActive={isActive}/>
+            <AddCityLayer isActive={isActive} onClickAddCity={() => onClickAddCity(valueInput, valueSelect, valueSave)}/>
         </div>
     );
 }

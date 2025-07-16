@@ -1,4 +1,4 @@
-const LayerInput = () => {
+const LayerInput = ({ value, onChange}) => {
 
     return (
         <div className="relative mt-[40px] border-b-1 border-white pb-[20px]">
@@ -19,6 +19,8 @@ const LayerInput = () => {
                 focus:border-white
             `}
                 placeholder="Search city..."
+                value={value}
+                onChange={() => onChange(value)}
             />
         </div>
     );

@@ -14,13 +14,13 @@ const WeatherList = () => {
         { id: 9, time: '08:00', temperature: '19C' },
         { id: 10, time: '09:00', temperature: '19C' },
         { id: 11, time: '10:00', temperature: '19C' },
-        { id: 12, time: '11:00', temperature: '19C' },
+        { id: 12, time: '11:00', temperature: '19C' }
     ]);
 
     return (
-        <ul className='flex items-center gap-x-[12px] px-[20px] mt-[20px] overflow-scroll'>
+        <ul className='w-full h-[200px] flex shrink-0 items-center gap-x-[12px] px-[20px] overflow-x-scroll pl-[20px]'>
             {weatherList.map((el) => (
-                <li>
+                <li key={el.id}>
                     <WeatherItem
                         key={el.id}
                         time={el.time}

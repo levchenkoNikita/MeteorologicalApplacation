@@ -51,7 +51,19 @@ function App() {
       const pressure = "pressure_msl";
       const raddiance = "direct_normal_irradiance";
       const wind = "wind_gusts_10m";
-      const urlAdr = `https://api.open-meteo.com/v1/forecast?latitude=${currentCity.lat}&longitude=${currentCity.lon}&hourly=${temperature}&hourly=${humidity}&hourly=${visibility}&hourly=${apparent}&hourly=${pressure}&hourly=${raddiance}&hourly=${wind}`;
+      const urlAdr = `
+        https://api.open-meteo.com/v1/forecast?
+        latitude=${currentCity.lat}
+        &longitude=${currentCity.lon}
+        &hourly=${temperature}
+        &hourly=${humidity}
+        &hourly=${visibility}
+        &hourly=${apparent}
+        &hourly=${pressure}
+        &hourly=${raddiance}
+        &hourly=${wind}
+      `;
+
       fetch(String(urlAdr))
         .then((response) => response.json())
         .then((data) => {
@@ -60,7 +72,7 @@ function App() {
           const time = timeString.map((el) => el.slice(11, 16));
           const time_unit = 'AM';
           const temperature = Object.values(data.hourly['temperature_2m'].slice(0, 24));
-          const temperature_unit = data['hourly_units']['temperature_2m'];
+          const temperature_unit = data['hourly_units']['time'];
           setWeatherList(createArrOfObj(24,
             [
               time,
@@ -93,14 +105,14 @@ function App() {
               pressure,
               raddiance,
               wind
-            ],
+            ], 
             {
-              humidity: humidity_unit,
-              visibility: visibility_unit,
-              apparent: apparent_unit,
-              pressure: pressure_unit,
-              raddiance: raddiance_unit,
-              wind: wind_unit
+              'Humidity 💧': humidity_unit,
+              'Visibility 👁️': visibility_unit,
+              'Feels like 🤒': apparent_unit, // Если не будет работать то заменить на список сверху(массив)
+              'Pressure ⛈️': pressure_unit,
+              'UV index ☀️': raddiance_unit,
+              'Wind 🌬️': wind_unit
             }
           ));
         })

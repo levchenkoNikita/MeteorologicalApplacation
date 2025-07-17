@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import ParametrsItem from '../elements/ParametrsItem';
 
 const ParametrsList = ({ parametrsList }) => {
-
+    const isActiveWeather = useContext;
     const nameListForUser = ['UV index ☀️', 'Wind 🌬️', 'Rainfall 🌧️', 'Feels like 🤒', 'Humidity 💧', 'Visibility 👁️'];
     const nameListForProgram = ['UV-index', 'Wind', 'Rainfall', 'Feels-like', 'humidity', 'visibility'];
-
+    console.log(isActiveWeather)
     return (
         <ul
             className={`

@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import BrowButton from './UI/buttons/BrowButton';
 import ChangeForecastTime from './ChangeForecastTime';
 import WeatherForecastList from './WeatherForecastList';
 import WeatherList from './UI/lists/WeatherList';
 import ParametrsList from './UI/lists/ParametrsList';
 
+const ActiveWeather = createContext();
+
 const WeatherForecast = ({ isActive, onClick, weatherList, parametrsList }) => {
+
+    const [isActiveWeather, setIsActiveWeather] = useState(0);
 
     return (
         <div
@@ -21,11 +25,14 @@ const WeatherForecast = ({ isActive, onClick, weatherList, parametrsList }) => {
                 <ChangeForecastTime />
             </div>
             <div className='w-full flex flex-col items-center gap-y-[15px] pb-[6px] border-b-[1px] overflow-y-scroll'>
-                <WeatherList weatherList={weatherList} />
-                <ParametrsList parametrsList={parametrsList}/>
+                <ActiveWeather.Provider value={ {isActiveWeather, setIsActiveWeather} }>
+                    <WeatherList weatherList={weatherList} />
+                    <ParametrsList parametrsList={parametrsList} />
+                </ActiveWeather.Provider>
             </div>
         </div>
     );
 }
 
 export default WeatherForecast;
+export { ActiveWeather };

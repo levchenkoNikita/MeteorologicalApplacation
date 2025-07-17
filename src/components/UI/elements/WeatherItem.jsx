@@ -1,4 +1,4 @@
-const WeatherItem = ({ isActive, time, temperature }) => {
+const WeatherItem = ({ isActive, id, time, temperature, onClick }) => {
 
     return (
         <div
@@ -7,6 +7,7 @@ const WeatherItem = ({ isActive, time, temperature }) => {
                 flex flex-col gap-y-[16px] items-center rounded-[30px] px-[8px] py-[15px]
                 ${isActive ? 'bg-red-950' : 'bg-blue-400'}
             `}
+            onClick={onClick(id)}
         >
             <div className={`w-[43px] h-[20px] text-[15px]`}>
                 {time}

@@ -4,7 +4,7 @@ import useDataWeatherList from '../../Hooks/useDataWeatherList';
 import { ActiveWeather } from '../../WeatherForecast';
 
 const WeatherList = ({ weatherList }) => {
-    const [isActiveWeather, setIsActiveWeather] = useContext(ActiveWeather);
+    const {setIsActiveWeather} = useContext(ActiveWeather);
 
     function handleClick(id) {
         setIsActiveWeather(id);

@@ -1,17 +1,16 @@
 import React, { useState, useContext } from 'react';
 import ParametrsItem from '../elements/ParametrsItem';
+import { ActiveWeather } from '../../WeatherForecast';
 
 const ParametrsList = ({ parametrsList }) => {
-    const isActiveWeather = useContext;
-    const nameListForUser = ['UV index ☀️', 'Wind 🌬️', 'Rainfall 🌧️', 'Feels like 🤒', 'Humidity 💧', 'Visibility 👁️'];
-    const nameListForProgram = ['UV-index', 'Wind', 'Rainfall', 'Feels-like', 'humidity', 'visibility'];
-    console.log(isActiveWeather)
+    const {isActiveWeather} = useContext(ActiveWeather);
+
     return (
         <ul
             className={`
                 h-full grid grid-cols-2 gap-x-[14px] gap-y-[10px] pb-[100px]
             `}>
-            {Object.entries(parametrsList[1]).map((el, index) => {
+            {Object.entries(parametrsList[isActiveWeather]).map((el, index) => {
                 if (el[0] === 'id') {
 
                 } else {

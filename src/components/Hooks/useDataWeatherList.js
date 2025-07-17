@@ -15,7 +15,7 @@ const useDataWeatherList = () => {
         { id: 11, time: '10:00', temperature: '19C' },
         { id: 12, time: '11:00', temperature: '19C' }
     ]);
-    console.log(weatherList)
+    // console.log(weatherList)
 
     return [weatherList, setWeatherList];
 }

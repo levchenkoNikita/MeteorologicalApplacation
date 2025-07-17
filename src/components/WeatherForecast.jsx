@@ -9,8 +9,8 @@ const ActiveWeather = createContext();
 
 const WeatherForecast = ({ isActive, onClick, weatherList, parametrsList }) => {
 
-    const [isActiveWeather, setIsActiveWeather] = useState(0);
-
+    const [isActiveWeather, setIsActiveWeather] = useState(1);
+    
     return (
         <div
             className={`

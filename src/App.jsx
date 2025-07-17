@@ -34,7 +34,7 @@ function App() {
       fetch(String(geoCity))
         .then((response) => response.json())
         .then((data) => {
-          console.log(data)
+          // console.log(data)
           const { name, country, lat, lon } = data[0];
           setCurrentCity({ name, country, lat, lon });
         })
@@ -51,18 +51,7 @@ function App() {
       const pressure = "pressure_msl";
       const raddiance = "direct_normal_irradiance";
       const wind = "wind_gusts_10m";
-      const urlAdr = `
-        https://api.open-meteo.com/v1/forecast?
-        latitude=${currentCity.lat}
-        &longitude=${currentCity.lon}
-        &hourly=${temperature}
-        &hourly=${humidity}
-        &hourly=${visibility}
-        &hourly=${apparent}
-        &hourly=${pressure}
-        &hourly=${raddiance}
-        &hourly=${wind}
-      `;
+      const urlAdr = `https://api.open-meteo.com/v1/forecast?latitude=${currentCity.lat}&longitude=${currentCity.lon}&hourly=${temperature}&hourly=${humidity}&hourly=${visibility}&hourly=${apparent}&hourly=${pressure}&hourly=${raddiance}&hourly=${wind}`;
 
       fetch(String(urlAdr))
         .then((response) => response.json())
@@ -70,9 +59,9 @@ function App() {
           console.log(data)
           const timeString = Object.values(data.hourly.time).slice(0, 24);
           const time = timeString.map((el) => el.slice(11, 16));
-          const time_unit = 'AM';
+          const time_unit = ' ';
           const temperature = Object.values(data.hourly['temperature_2m'].slice(0, 24));
-          const temperature_unit = data['hourly_units']['time'];
+          const temperature_unit = 'С°';
           setWeatherList(createArrOfObj(24,
             [
               time,
@@ -110,7 +99,7 @@ function App() {
               'Humidity 💧': humidity_unit,
               'Visibility 👁️': visibility_unit,
               'Feels like 🤒': apparent_unit, // Если не будет работать то заменить на список сверху(массив)
-              'Pressure ⛈️': pressure_unit,
+              'Rainfall 🌧️': pressure_unit,
               'UV index ☀️': raddiance_unit,
               'Wind 🌬️': wind_unit
             }

@@ -11,7 +11,7 @@ const WeatherList = ({ weatherList }) => {
     }
 
     return (
-        <ul className='w-full h-[200px] flex shrink-0 items-center gap-x-[12px] px-[20px] overflow-x-scroll pl-[20px]'>
+        <ul className='w-full h-[170px] flex shrink-0 items-center gap-x-[12px] px-[20px] overflow-x-scroll ml-[15px]'>
             {weatherList.map((el) => (
                 <li key={el.id}>
                     <WeatherItem

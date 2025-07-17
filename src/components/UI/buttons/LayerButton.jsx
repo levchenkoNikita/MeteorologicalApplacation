@@ -1,17 +1,26 @@
 import React from 'react';
 
-const LayerButton = ({ isActive, isIcon, onClick, children }) => {
+const LayerButton = ({ isActive, isStatic, isIcon, onClick, children }) => {
 
     return (
         <button
-            className={`
-                w-[358px] h-[36px]  rounded-[10px]
-                flex items-center py-[7px] px-[16px] mt-[30px]
-                ${isIcon ? 'justify-between' : 'justify-center'}
-                ${isActive ? 'bg-blue-500' : 'bg-red-950 active:bg-blue-500'}
-            `}
+            className={
+                isStatic ?
+                    `
+                        w-[358px] h-[36px]  rounded-[10px] mt-[30px]
+                        flex justify-center items-center py-[7px] px-[16px] 
+                        ${isActive ? 'bg-blue-500' : 'bg-red-950'}
+                     `
+                    :
+                    `
+                        w-[358px] h-[36px]  rounded-[10px]
+                        flex items-center py-[7px] px-[16px] mt-[30px]
+                        bg-red-950 active:bg-blue-500
+                        ${isIcon ? 'justify-between' : 'justify-center'}
+                     `
+            }
             onClick={onClick}
-            >
+        >
             {children}
             {isIcon
                 ? <div className='w-[20px] apsect-[1] flex justify-center items-center'>

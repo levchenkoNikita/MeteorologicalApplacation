@@ -8,7 +8,7 @@ const AddCity = ({ onClickAddCity }) => {
     function handleClick() {
         setIsActive(!isActive);
     }
-
+    
     return (
         <div
             className={`
@@ -17,7 +17,7 @@ const AddCity = ({ onClickAddCity }) => {
                 flex items-center justify-center shrink-0 
             `}>
             <AddCityButton isActive={isActive} onClick={handleClick}/>
-            <AddCityLayer isActive={isActive} onClickAddCity={() => onClickAddCity(valueInput, valueSelect, valueSave)}/>
+            <AddCityLayer isActive={isActive} onClickAddCity={(valueInput, valueSelect, valueSave) => onClickAddCity(valueInput, valueSelect, valueSave)}/>
         </div>
     );
 }

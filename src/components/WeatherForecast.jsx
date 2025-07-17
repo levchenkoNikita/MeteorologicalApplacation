@@ -5,7 +5,7 @@ import WeatherForecastList from './WeatherForecastList';
 import WeatherList from './UI/lists/WeatherList';
 import ParametrsList from './UI/lists/ParametrsList';
 
-const WeatherForecast = ({ isActive, onClick }) => {
+const WeatherForecast = ({ isActive, onClick, weatherList, parametrsList }) => {
 
     return (
         <div
@@ -21,8 +21,8 @@ const WeatherForecast = ({ isActive, onClick }) => {
                 <ChangeForecastTime />
             </div>
             <div className='w-full flex flex-col items-center gap-y-[15px] pb-[6px] border-b-[1px] overflow-y-scroll'>
-                <WeatherList />
-                <ParametrsList />
+                <WeatherList weatherList={weatherList} />
+                <ParametrsList parametrsList={parametrsList }/>
             </div>
         </div>
     );

@@ -12,7 +12,7 @@ const AddCity = ({ onClickAddCity }) => {
     return (
         <div
             className={`
-                w-[200px] h-full bg-gray-100 
+                w-[200px] h-full bg-[#1C1B33] 
                 bg-[url('./assets/images/addcity-back-button.png')]
                 flex items-center justify-center shrink-0 
             `}>

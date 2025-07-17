@@ -129,7 +129,7 @@ function App() {
   )
 
   return (
-    <div className='w-screen h-screen bg-blue-400 bg-[url("./assets/images/background-image.png")] overflow-hidden relative'>
+    <div className='w-screen h-screen bg-blue-400 bg-[url("../assets/images/bg.png")] bg-center bg-cover bg-no-repeat overflow-hidden'>
 
       <Display city={currentCity} temperature={weatherList}/>
 
@@ -146,7 +146,7 @@ function App() {
         onClickAddCity={(valueInput, valueSelect, valueSave) => handleAddCity(valueInput, valueSelect, valueSave)}
       />
 
-      <div className='w-[390px] aspect-[1] absolute top-[60%] left-[50%] translate-[-50%] bg-red-300 bg-[url("./assets/images/house.png")]'></div>
+      <div className='w-[390px] aspect-[1] absolute top-[60%] left-[50%] translate-[-50%] bg-transparent bg-[url("../assets/images/house.png")]'></div>
     </div>
   )
 }

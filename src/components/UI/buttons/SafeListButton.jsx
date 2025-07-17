@@ -4,7 +4,7 @@ const SafeListButton = ({isActive, onClick}) => {
         <button
             className={`
                 size-full flex items-center justify-center duration-[0.2s]
-                ${isActive ? 'bg-white text-black' : 'bg-transparent text-white'}
+                ${isActive ? 'bg-white text-black' : 'bg-[#48319D] text-white'}
             `}
             onClick={onClick}
         >

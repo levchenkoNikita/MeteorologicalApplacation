@@ -28,8 +28,8 @@ const AddCityLayer = ({ isActive, onClickAddCity }) => {
             className={`
                 w-full h-[702px] absolute top-[100px] z-[-1] rounded-tr-[44px] rounded-tl-[44px]
                 ${isActive ? 'translate-y-[-702px]' : 'translate-y-[0px]'}
-                bg-violet-600 bg-[url('./assets/images/addcity-back-button.png')]
-                flex flex-col items-center justify-start shrink-0 duration-[0.7s]
+                bg-[#48319D] bg-[url('./assets/images/addcity-back-button.png')]
+                flex flex-col items-center justify-start shrink-0 duration-[0.7s] opacity-98
             `}>
             <LayerInput value={inputValue} onChange={(city) => setInputValue(city)} />
             <LayerButton onClick={handleAddCity}>

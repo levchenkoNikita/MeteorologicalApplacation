@@ -1,13 +1,13 @@
-function createArrOfObj(count, [], {}) {
+function createArrOfObj(count, data, name) {
+    const nameOfData = Object.keys(name);
+    const unitOfData = Object.values(name);
     const array = [];
     let obj = {};
-    for(let i = 0; i < count; i++) {
-        if(firstUnit === 'AM' && i === count/2) {
-            firstUnit = 'PM';
-        }
+    for (let i = 0; i < count; i++) {
         obj.id = i;
-        obj[firstName] = String(firstData[i]) + firstUnit ;
-        obj[secondName] = String(secondData[i]) + secondUnit;
+        for (let j = 0; j < nameOfData.length; j++) {
+            obj[nameOfData[j]] = String(data[j][i]) + unitOfData[j];
+        }
         array.push(obj);
         obj = {}
     }

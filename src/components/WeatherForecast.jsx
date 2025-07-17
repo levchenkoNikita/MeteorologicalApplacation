@@ -22,7 +22,7 @@ const WeatherForecast = ({ isActive, onClick, weatherList, parametrsList }) => {
             </div>
             <div className='w-full flex flex-col items-center gap-y-[15px] pb-[6px] border-b-[1px] overflow-y-scroll'>
                 <WeatherList weatherList={weatherList} />
-                <ParametrsList parametrsList={parametrsList }/>
+                <ParametrsList parametrsList={parametrsList}/>
             </div>
         </div>
     );

@@ -13,7 +13,7 @@ function App() {
   const [isGeolocation, setIsGeolocation] = useState(true);
   const [changeCity, setChangeCity] = useState({ valueInput: '', valueSelect: false, valueSave: false });
   const [currentCity, setCurrentCity] = useState({ name: '', country: '', lat: 0, lon: 0 });
-  const [weatherList, setWeatherList] = useDataWeatherList({ isReturn: false, valTime: '12:00', valTemp: '1C' });
+  const [weatherList, setWeatherList] = useDataWeatherList({ id: 8, valTime: '12:00', valTemp: '1C' });
   const [parametrsList, setParametrsList] = useDataParametrsList({ id: 8, nameData: "UV-index", data: '11' });
 
   function handleClick() {
@@ -73,17 +73,17 @@ function App() {
           ));
           //
           //
-          const humidity = Object.values(data.hourly['relative_humidity_2m'].slice(0, 24));
+          const humidity = Object.values(data.hourly['relative_humidity_2m']).slice(0, 24);
           const humidity_unit = data['hourly_units']['relative_humidity_2m'];
-          const visibility = Object.values(data.hourly['visibility'].slice(0, 24));
+          const visibility = Object.values(data.hourly['visibility']).slice(0, 24);
           const visibility_unit = data['hourly_units']['visibility'];
-          const apparent = Object.values(data.hourly['apparent_temperature'].slice(0, 24));
+          const apparent = Object.values(data.hourly['apparent_temperature']).slice(0, 24);
           const apparent_unit = data['hourly_units']['apparent_temperature'];
-          const pressure = Object.values(data.hourly['pressure_msl'].slice(0, 24));
+          const pressure = Object.values(data.hourly['pressure_msl']).slice(0, 24);
           const pressure_unit = data['hourly_units']['pressure_msl'];
-          const raddiance = Object.values(data.hourly['direct_normal_iraddiance'].slice(0, 24));
-          const raddiance_unit = data['hourly_units']['direct_normal_iraddiance'];
-          const wind = Object.values(data.hourly['wind_gusts_10m'].slice(0, 24));
+          const raddiance = Object.values(data.hourly['direct_normal_irradiance']).slice(0, 24);
+          const raddiance_unit = data['hourly_units']['direct_normal_irradiance'];
+          const wind = Object.values(data.hourly['wind_gusts_10m']).slice(0, 24);
           const wind_unit = data['hourly_units']['wind_gusts_10m'];
           setParametrsList(createArrOfObj(24,
             [

@@ -11,15 +11,21 @@ const ParametrsList = ({ parametrsList }) => {
             className={`
                 h-full grid grid-cols-2 gap-x-[14px] gap-y-[10px] pb-[100px]
             `}>
-            {parametrsList.map((el, index) => (
-                <li key={el.id}>
-                    <ParametrsItem
-                        key={el.id}
-                        nameData={nameListForUser[index]}
-                        data={el[nameListForProgram[4]]}
-                    />
-                </li>
-            ))}
+            {Object.entries(parametrsList[1]).map((el, index) => {
+                if (el[0] === 'id') {
+
+                } else {
+                    return (
+                        <li key={Date.now() + index}>
+                            <ParametrsItem
+                                key={Date.now() + index}
+                                nameData={el[0]}
+                                data={el[1]}
+                            />
+                        </li>
+                    );
+                }
+            })}
         </ul>
     );
 }

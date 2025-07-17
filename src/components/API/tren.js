@@ -4,6 +4,14 @@ const inputEl = document.querySelector('input');
 buttonEl.addEventListener('click', () => {
     // fetchNow()
     fetchOpenMeteo()
+    console.log(Array.from({
+              humidity: "humidity_unit",
+              visibility: 'visibility_unit',
+              apparent: 'apparent_unit',
+              pressure: 'pressure_unit',
+              raddiance: 'raddiance_unit',
+              wind: 'wind_unit'
+            }));
     // fetchPost()
 });
 

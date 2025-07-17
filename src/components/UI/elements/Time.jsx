@@ -1,6 +1,6 @@
 const Time = ({ children }) => {
     return (
-        <div>
+        <div className='text-[20px] flex items-center justify-center'>
             {children}
         </div>
     );

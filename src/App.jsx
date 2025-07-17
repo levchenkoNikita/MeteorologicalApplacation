@@ -11,8 +11,9 @@ function App() {
   const [count, setCount] = useState(0)
   const [isActive, setIsActive] = useState(false);
   const [isGeolocation, setIsGeolocation] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [changeCity, setChangeCity] = useState({ valueInput: '', valueSelect: false, valueSave: false });
-  const [currentCity, setCurrentCity] = useState({ name: '', country: '', lat: 0, lon: 0 });
+  const [currentCity, setCurrentCity] = useState({ regionName: '', country: '', lat: 0, lon: 0 });
   const [weatherList, setWeatherList] = useDataWeatherList({ id: 8, valTime: '12:00', valTemp: '1C' });
   const [parametrsList, setParametrsList] = useDataParametrsList({ id: 8, nameData: "UV-index", data: '11' });
 
@@ -35,6 +36,7 @@ function App() {
         .then((data) => {
           const { regionName, country, lat, lon } = data;
           setCurrentCity({ regionName, country, lat, lon });
+          setIsLoading(false);
         })
         .catch((er) => console.log("Error: ", er));
     }
@@ -46,7 +48,6 @@ function App() {
       fetch(String(geoCity))
         .then((response) => response.json())
         .then((data) => {
-          // console.log(data)
           const { name, country, lat, lon } = data[0];
           setCurrentCity({ name, country, lat, lon });
         })
@@ -121,10 +122,16 @@ function App() {
     }
   }, [currentCity]);
 
+  if(isLoading) return (
+    <div>
+      Loading...
+    </div>
+  )
+
   return (
     <div className='w-screen h-screen bg-blue-400 bg-[url("./assets/images/background-image.png")] overflow-hidden relative'>
-      
-      <Display />
+
+      <Display city={currentCity} temperature={weatherList}/>
 
       <WeatherForecast
         isActive={isActive}

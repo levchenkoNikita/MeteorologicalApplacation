@@ -29,6 +29,18 @@ function App() {
   }
 
   useEffect(() => {
+    if (isGeolocation) {
+      fetch('http://ip-api.com/json/')
+        .then((response) => response.json())
+        .then((data) => {
+          const { regionName, country, lat, lon } = data;
+          setCurrentCity({ regionName, country, lat, lon });
+        })
+        .catch((er) => console.log("Error: ", er));
+    }
+  }, [isGeolocation]);
+
+  useEffect(() => {
     if (changeCity.valueInput.length > 1) {
       const geoCity = `http://api.openweathermap.org/geo/1.0/direct?q=${changeCity.valueInput}&limit=1&appid=${API}`;
       fetch(String(geoCity))
@@ -94,7 +106,7 @@ function App() {
               pressure,
               raddiance,
               wind
-            ], 
+            ],
             {
               'Humidity 💧': humidity_unit,
               'Visibility 👁️': visibility_unit,
@@ -111,7 +123,8 @@ function App() {
 
   return (
     <div className='w-screen h-screen bg-blue-400 bg-[url("./assets/images/background-image.png")] overflow-hidden relative'>
-      {/* <Display /> */}
+      
+      <Display />
 
       <WeatherForecast
         isActive={isActive}

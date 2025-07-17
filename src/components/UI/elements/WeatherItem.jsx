@@ -5,7 +5,7 @@ const WeatherItem = ({ isActive, time, temperature }) => {
             className={`
                 w-[60px] h-[146px] border-[1px] border-white text-white my-[12px]
                 flex flex-col gap-y-[16px] items-center rounded-[30px] px-[8px] py-[15px]
-                ${isActive ? 'bg-blue-600' : 'bg-blue-400'}
+                ${isActive ? 'bg-red-950' : 'bg-blue-400'}
             `}
         >
             <div className={`w-[43px] h-[20px] text-[15px]`}>

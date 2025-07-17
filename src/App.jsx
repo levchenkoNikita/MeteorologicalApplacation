@@ -47,19 +47,62 @@ function App() {
       const temperature = "temperature_2m";
       const humidity = "relative_humidity_2m";
       const visibility = "visibility";
-      const urlAdr = `https://api.open-meteo.com/v1/forecast?latitude=${currentCity.lat}&longitude=${currentCity.lon}&hourly=${temperature}&hourly=${humidity}&hourly=${visibility}`;
+      const apparent = "apparent_temperature";
+      const pressure = "pressure_msl";
+      const raddiance = "direct_normal_irradiance";
+      const wind = "wind_gusts_10m";
+      const urlAdr = `https://api.open-meteo.com/v1/forecast?latitude=${currentCity.lat}&longitude=${currentCity.lon}&hourly=${temperature}&hourly=${humidity}&hourly=${visibility}&hourly=${apparent}&hourly=${pressure}&hourly=${raddiance}&hourly=${wind}`;
       fetch(String(urlAdr))
         .then((response) => response.json())
         .then((data) => {
           console.log(data)
           const timeString = Object.values(data.hourly.time).slice(0, 24);
           const time = timeString.map((el) => el.slice(11, 16));
+          const time_unit = 'AM';
           const temperature = Object.values(data.hourly['temperature_2m'].slice(0, 24));
-          setWeatherList(createArrOfObj(24, time, temperature, 'time', 'temperature'));
-
+          const temperature_unit = data['hourly_units']['temperature_2m'];
+          setWeatherList(createArrOfObj(24,
+            [
+              time,
+              temperature
+            ],
+            {
+              time: time_unit,
+              temperature: temperature_unit
+            }
+          ));
+          //
+          //
           const humidity = Object.values(data.hourly['relative_humidity_2m'].slice(0, 24));
+          const humidity_unit = data['hourly_units']['relative_humidity_2m'];
           const visibility = Object.values(data.hourly['visibility'].slice(0, 24));
-          setParametrsList(createArrOfObj(24, humidity, visibility, 'humidity', 'visibility'))
+          const visibility_unit = data['hourly_units']['visibility'];
+          const apparent = Object.values(data.hourly['apparent_temperature'].slice(0, 24));
+          const apparent_unit = data['hourly_units']['apparent_temperature'];
+          const pressure = Object.values(data.hourly['pressure_msl'].slice(0, 24));
+          const pressure_unit = data['hourly_units']['pressure_msl'];
+          const raddiance = Object.values(data.hourly['direct_normal_iraddiance'].slice(0, 24));
+          const raddiance_unit = data['hourly_units']['direct_normal_iraddiance'];
+          const wind = Object.values(data.hourly['wind_gusts_10m'].slice(0, 24));
+          const wind_unit = data['hourly_units']['wind_gusts_10m'];
+          setParametrsList(createArrOfObj(24,
+            [
+              humidity,
+              visibility,
+              apparent,
+              pressure,
+              raddiance,
+              wind
+            ],
+            {
+              humidity: humidity_unit,
+              visibility: visibility_unit,
+              apparent: apparent_unit,
+              pressure: pressure_unit,
+              raddiance: raddiance_unit,
+              wind: wind_unit
+            }
+          ));
         })
         .catch((er) => console.log("Error: ", er));
     }
@@ -87,4 +130,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

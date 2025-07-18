@@ -1,17 +1,20 @@
 const buttonEl = document.querySelector('#button');
 const inputEl = document.querySelector('input');
+const array = [{name: "Москва"}]
 
 buttonEl.addEventListener('click', () => {
+    console.log("Array", array)
+    console.log("Push", [...array, {name: "Питер"}])
     // fetchNow()
-    fetchOpenMeteo()
-    console.log(Array.from({
-              humidity: "humidity_unit",
-              visibility: 'visibility_unit',
-              apparent: 'apparent_unit',
-              pressure: 'pressure_unit',
-              raddiance: 'raddiance_unit',
-              wind: 'wind_unit'
-            }));
+    // fetchOpenMeteo()
+    // console.log(Array.from({
+    //           humidity: "humidity_unit",
+    //           visibility: 'visibility_unit',
+    //           apparent: 'apparent_unit',
+    //           pressure: 'pressure_unit',
+    //           raddiance: 'raddiance_unit',
+    //           wind: 'wind_unit'
+    //         }));
     // fetchPost()
 });
 

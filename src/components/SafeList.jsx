@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SafeListButton from './UI/buttons/SafeListButton';
 import SafeListLayer from './UI/layers/SafeListLayer';
 
-const SafeList = () => {
+const SafeList = ({ safeList, onClickSafeCity }) => {
     const [isActive, setIsActive] = useState(false);
 
     function handleClick() {
@@ -12,7 +12,7 @@ const SafeList = () => {
     return (
         <div className='size-full'>
             <SafeListButton isActive={isActive} onClick={handleClick}/>
-            <SafeListLayer isActive={isActive}/>
+            <SafeListLayer isActive={isActive} safeList={safeList} onClickSafeCity={onClickSafeCity}/>
         </div>
     );
 }

@@ -16,7 +16,7 @@ const WeatherForecast = ({ isActive, onClick, weatherList, parametrsList }) => {
             className={`
                 w-full h-[802px] bg-gradient-to-b from-[#2E335A] to-[#1C1B33] backdrop-blur-[50px] absolute top-full opacity-98
                 z-1 rounded-tr-[44px] rounded-tl-[44px] text-white bg-[#48319D]
-                flex flex-col items-center duration-[0.7s]
+                flex flex-col items-center duration-[0.7s] 
                 ${isActive ? 'translate-y-[-702px]' : 'translate-y-[-325px]'}
             `}
         >

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Menu from './components/Menu';
 import WeatherForecast from './components/WeatherForecast';
 import Display from './components/Display';
+import useSafeList from './components/Hooks/useDataSafeList';
 import useDataWeatherList from './components/Hooks/useDataWeatherList';
 import useDataParametrsList from './components/Hooks/useDataParametrsList';
 import createArrOfObj from './components/Scripts/createArrOfObj';
@@ -14,7 +15,8 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [changeCity, setChangeCity] = useState({ valueInput: '', valueSelect: false, valueSave: false });
   const [currentCity, setCurrentCity] = useState({ regionName: '', country: '', lat: 0, lon: 0 });
-  const [weatherList, setWeatherList] = useDataWeatherList({ id: 8, valTime: '12:00', valTemp: '1C' });
+  const [safeList, setSafeList] = useSafeList([{}]);
+  const [weatherList, setWeatherList] = useDataWeatherList({ id: 8, time: '12:00', temperature: '1C' });
   const [parametrsList, setParametrsList] = useDataParametrsList({ id: 8, nameData: "UV-index", data: '11' });
 
   function handleClick() {
@@ -27,6 +29,10 @@ function App() {
 
   function handleAddCity(valueI, valueSl, valueSv) {
     setChangeCity({ valueInput: valueI, valueSelect: valueSl, valueSave: valueSv });
+  }
+
+  function handleSafeCity() {
+    console.log("Привет")
   }
 
   useEffect(() => {
@@ -50,6 +56,9 @@ function App() {
         .then((data) => {
           const { name, country, lat, lon } = data[0];
           setCurrentCity({ name, country, lat, lon });
+          if(changeCity.valueSave) {
+            setSafeList([...safeList, {id: Date.now(), regionName: changeCity.valueInput}]);
+          }
         })
         .catch((er) => console.log("Error: ", er));
     }
@@ -143,6 +152,8 @@ function App() {
       <Menu
         isGeolocation={isGeolocation}
         onClickGeolocationButton={handleGeolocationButton}
+        onClickSafeCity={handleSafeCity}
+        safeList={safeList}
         onClickAddCity={(valueInput, valueSelect, valueSave) => handleAddCity(valueInput, valueSelect, valueSave)}
       />
 

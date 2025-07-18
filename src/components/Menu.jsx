@@ -3,7 +3,7 @@ import Geolocation from './Geolocation';
 import AddCity from './AddCity';
 import SafeList from './SafeList';
 
-const Menu = ({ isGeolocation, onClickGeolocationButton, onClickAddCity }) => {
+const Menu = ({ isGeolocation, onClickGeolocationButton, onClickAddCity, onClickSafeCity, safeList }) => {
 
     return (
         <div
@@ -20,7 +20,7 @@ const Menu = ({ isGeolocation, onClickGeolocationButton, onClickAddCity }) => {
             <AddCity
                 onClickAddCity={(valueInput, valueSelect, valueSave) => onClickAddCity(valueInput, valueSelect, valueSave)}
             />
-            <SafeList />
+            <SafeList safeList={safeList} onClickSafeCity={onClickSafeCity}/>
         </div>
     );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LayerButton = ({ isActive, isStatic, isIcon, onClick, children, nameCity }) => {
+const LayerButton = ({ isActive, isStatic, isIcon, onClick, children, nameCity, onClickDeleteCity }) => {
 
     return (
         <button
@@ -23,7 +23,10 @@ const LayerButton = ({ isActive, isStatic, isIcon, onClick, children, nameCity }
         >
             {children}
             {isIcon
-                ? <div className='w-[20px] apsect-[1] flex justify-center items-center'>
+                ? <div className='w-[20px] apsect-[1] flex justify-center items-center' onClick={(event) => {
+                    event.stopPropagation();
+                    onClickDeleteCity(nameCity);
+                }}>
                     <svg height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3">
                         <path d="M312-144q-29.7 0-50.85-21.15Q240-186.3
                          240-216v-480h-48v-72h192v-48h192v48h192v72h-48v479.57Q720-186

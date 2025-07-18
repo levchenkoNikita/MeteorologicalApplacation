@@ -35,6 +35,15 @@ function App() {
     setChangeCity({ valueInput: nameCity, valueSelect: false, valueSave: false });
   }
 
+  function deleteSafeCity(nameCity) {
+    const newArray = [...safeList];
+    const index = newArray.findIndex(city => city.regionName === nameCity);
+    if (index !== -1) {
+      newArray.splice(index, 1);
+      setSafeList(newArray);
+    }
+  }
+
   useEffect(() => {
     if (isGeolocation) {
       fetch('http://ip-api.com/json/')
@@ -56,8 +65,8 @@ function App() {
         .then((data) => {
           const { name, country, lat, lon } = data[0];
           setCurrentCity({ name, country, lat, lon });
-          if(changeCity.valueSave) {
-            setSafeList([...safeList, {id: Date.now(), regionName: changeCity.valueInput}]);
+          if (changeCity.valueSave) {
+            setSafeList([...safeList, { id: Date.now(), regionName: changeCity.valueInput }]);
           }
         })
         .catch((er) => console.log("Error: ", er));
@@ -131,7 +140,7 @@ function App() {
     }
   }, [currentCity]);
 
-  if(isLoading) return (
+  if (isLoading) return (
     <div>
       Loading...
     </div>
@@ -140,7 +149,7 @@ function App() {
   return (
     <div className='w-screen h-screen bg-blue-400 bg-[url("../assets/images/bg.png")] bg-center bg-cover bg-no-repeat overflow-hidden'>
 
-      <Display city={currentCity} temperature={weatherList}/>
+      <Display city={currentCity} temperature={weatherList} />
 
       <WeatherForecast
         isActive={isActive}
@@ -153,6 +162,7 @@ function App() {
         isGeolocation={isGeolocation}
         onClickGeolocationButton={handleGeolocationButton}
         onClickSafeCity={handleSafeCity}
+        onClickDeleteCity={deleteSafeCity}
         safeList={safeList}
         onClickAddCity={(valueInput, valueSelect, valueSave) => handleAddCity(valueInput, valueSelect, valueSave)}
       />

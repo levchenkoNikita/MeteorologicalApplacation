@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import LayerInput from "../inputs/LayerInput";
 import LayerButton from "../buttons/LayerButton";
 
-const SafeListLayer = ({ isActive, safeList, onClickSafeCity }) => {
+const SafeListLayer = ({ isActive, safeList, onClickSafeCity, onClickDeleteCity }) => {
 
     return (
         <div
@@ -15,7 +15,7 @@ const SafeListLayer = ({ isActive, safeList, onClickSafeCity }) => {
             `}>
                 <LayerInput />
                 {safeList.map((city) => (
-                    <LayerButton isActive={false} isIcon={true} key={city.id} nameCity={city.regionName} onClick={(nameCity) => onClickSafeCity(nameCity)}>
+                    <LayerButton isActive={false} isIcon={true} key={city.id} nameCity={city.regionName} onClick={(nameCity) => onClickSafeCity(nameCity)} onClickDeleteCity={(nameCity) => onClickDeleteCity(nameCity)}>
                         {city.regionName}
                     </LayerButton>
                 ))}

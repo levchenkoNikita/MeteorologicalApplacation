@@ -59,7 +59,7 @@ function App() {
 
   useEffect(() => {
     if (changeCity.valueInput.length > 1) {
-      const geoCity = `http://api.openweathermap.org/geo/1.0/direct?q=${changeCity.valueInput}&limit=1&appid=${API}`;
+      const geoCity = `https://api.openweathermap.org/geo/1.0/direct?q=${changeCity.valueInput}&limit=1&appid=${API}`;
       fetch(String(geoCity))
         .then((response) => response.json())
         .then((data) => {

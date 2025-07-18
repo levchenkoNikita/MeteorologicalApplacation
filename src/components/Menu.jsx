@@ -1,4 +1,3 @@
-import React from 'react';
 import Geolocation from './Geolocation';
 import AddCity from './AddCity';
 import SafeList from './SafeList';

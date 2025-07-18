@@ -1,5 +1,3 @@
-import React from 'react';
-
 const LayerButton = ({ isActive, isStatic, isIcon, onClick, children, nameCity, onClickDeleteCity }) => {
 
     return (

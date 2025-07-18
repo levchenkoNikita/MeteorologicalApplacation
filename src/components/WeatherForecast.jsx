@@ -1,7 +1,6 @@
-import React, { createContext, useState } from 'react';
+import { createContext, useState } from 'react';
 import BrowButton from './UI/buttons/BrowButton';
 import ChangeForecastTime from './ChangeForecastTime';
-import WeatherForecastList from './WeatherForecastList';
 import WeatherList from './UI/lists/WeatherList';
 import ParametrsList from './UI/lists/ParametrsList';
 

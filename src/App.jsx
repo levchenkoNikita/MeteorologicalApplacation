@@ -129,7 +129,7 @@ function App() {
             {
               'Humidity 💧': humidity_unit,
               'Visibility 👁️': visibility_unit,
-              'Feels like 🤒': apparent_unit, // Если не будет работать то заменить на список сверху(массив)
+              'Feels like 🤒': apparent_unit,
               'Rainfall 🌧️': pressure_unit,
               'UV index ☀️': raddiance_unit,
               'Wind 🌬️': wind_unit

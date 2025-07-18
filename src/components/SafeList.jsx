@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import SafeListButton from './UI/buttons/SafeListButton';
 import SafeListLayer from './UI/layers/SafeListLayer';
 

@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import GeolocationButton from './UI/buttons/GeolocationButton';
 
 const Geolocation = ({isGeolocation, onClick}) => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import ForecastTimeButton from './UI/buttons/ForecastTimeButton';
 
 const ChangeForecastTime = () => {

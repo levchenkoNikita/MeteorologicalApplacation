@@ -1,4 +1,3 @@
-import React from 'react';
 import Time from './UI/elements/Time';
 import City from './UI/elements/City';
 

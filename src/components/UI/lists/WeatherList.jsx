@@ -1,6 +1,5 @@
-import React, { useState, useContext } from 'react';
+import { useContext } from 'react';
 import WeatherItem from '../elements/WeatherItem';
-import useDataWeatherList from '../../Hooks/useDataWeatherList';
 import { ActiveWeather } from '../../WeatherForecast';
 
 const WeatherList = ({ weatherList }) => {

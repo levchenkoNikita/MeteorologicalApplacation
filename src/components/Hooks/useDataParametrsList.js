@@ -11,7 +11,7 @@ const useDataParametrsList = () => {
         { id: 7, humidity: "UV-index", visibility: '11' },
         { id: 8, humidity: "UV-index", visibility: '11' }
     ]);
-    // console.log("Parametrs: ", parametrsList)
+
     return [parametrsList, setParametrsList];
 }
 

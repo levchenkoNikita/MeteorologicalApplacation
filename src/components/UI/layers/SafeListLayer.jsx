@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import LayerInput from "../inputs/LayerInput";
 import LayerButton from "../buttons/LayerButton";
 

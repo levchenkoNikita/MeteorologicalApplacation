@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import AddCityButton from "./UI/buttons/AddCityButton";
 import AddCityLayer from "./UI/layers/AddCityLayer";
 

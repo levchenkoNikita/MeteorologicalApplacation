@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LayerButton = ({ isActive, isStatic, isIcon, onClick, children }) => {
+const LayerButton = ({ isActive, isStatic, isIcon, onClick, children, nameCity }) => {
 
     return (
         <button
@@ -19,7 +19,7 @@ const LayerButton = ({ isActive, isStatic, isIcon, onClick, children }) => {
                         ${isIcon ? 'justify-between' : 'justify-center'}
                      `
             }
-            onClick={onClick}
+            onClick={() => onClick(nameCity)}
         >
             {children}
             {isIcon

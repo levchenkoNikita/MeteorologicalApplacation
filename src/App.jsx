@@ -31,8 +31,8 @@ function App() {
     setChangeCity({ valueInput: valueI, valueSelect: valueSl, valueSave: valueSv });
   }
 
-  function handleSafeCity() {
-    console.log("Привет")
+  function handleSafeCity(nameCity) {
+    setChangeCity({ valueInput: nameCity, valueSelect: false, valueSave: false });
   }
 
   useEffect(() => {

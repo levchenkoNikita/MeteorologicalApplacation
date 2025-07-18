@@ -12,7 +12,7 @@ const SafeList = ({ safeList, onClickSafeCity }) => {
     return (
         <div className='size-full'>
             <SafeListButton isActive={isActive} onClick={handleClick}/>
-            <SafeListLayer isActive={isActive} safeList={safeList} onClickSafeCity={onClickSafeCity}/>
+            <SafeListLayer isActive={isActive} safeList={safeList} onClickSafeCity={(nameCity) => onClickSafeCity(nameCity)}/>
         </div>
     );
 }

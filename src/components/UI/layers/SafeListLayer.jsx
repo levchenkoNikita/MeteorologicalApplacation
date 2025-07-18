@@ -15,7 +15,7 @@ const SafeListLayer = ({ isActive, safeList, onClickSafeCity }) => {
             `}>
                 <LayerInput />
                 {safeList.map((city) => (
-                    <LayerButton isActive={false} isIcon={true} key={city.id} onClick={onClickSafeCity}>
+                    <LayerButton isActive={false} isIcon={true} key={city.id} nameCity={city.regionName} onClick={(nameCity) => onClickSafeCity(nameCity)}>
                         {city.regionName}
                     </LayerButton>
                 ))}

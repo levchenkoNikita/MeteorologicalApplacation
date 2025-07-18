@@ -46,10 +46,14 @@ function App() {
 
   useEffect(() => {
     if (isGeolocation) {
-      fetch(String('https://ip-api.com/json/'))
+      fetch(String('https://freegeoip.app/json/'))
         .then((response) => response.json())
         .then((data) => {
-          const { regionName, country, lat, lon } = data;
+          console.log(data)
+          const regionName= data[city];
+          const country = data[country_name];
+          const lat = data[latitude];
+          const lon = data[longitude];
           setCurrentCity({ regionName, country, lat, lon });
           setIsLoading(false);
         })

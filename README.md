@@ -1,6 +1,7 @@
 # General description
 
 A web application for obtaining and displaying weather forecasts with the ability to select locations and detailed visualization of data.
+It works stably on screens with a size of 390x844.
 
 # Main functions
 - View the weather and the name of the place where the user is located, based on his current coordinates;

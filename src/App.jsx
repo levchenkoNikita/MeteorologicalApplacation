@@ -46,18 +46,24 @@ function App() {
 
   useEffect(() => {
     if (isGeolocation) {
-      fetch(String('https://freegeoip.app/json/'))
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data)
-          const regionName= data[city];
-          const country = data[country_name];
-          const lat = data[latitude];
-          const lon = data[longitude];
-          setCurrentCity({ regionName, country, lat, lon });
-          setIsLoading(false);
-        })
-        .catch((er) => console.log("Error: ", er));
+      // const proxy = 'https://api.allorigins.win/raw?url=';
+      // const urladfa = 'https://freegeoip.app/json/';
+      // fetch(String('https://freegeoip.app/json/'))
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      // console.log(data)
+      // const regionName= data[city];
+      // const country = data[country_name];
+      // const lat = data[latitude];
+      // const lon = data[longitude];
+      const regionName = "Russia";
+      const country = "Sevastopol";
+      const lat = 44.5888290405273;
+      const lon = 33.5223999023438;
+      setCurrentCity({ regionName, country, lat, lon });
+      setIsLoading(false);
+      // })
+      // .catch((er) => console.log("Error: ", er));
     }
   }, [isGeolocation]);
 

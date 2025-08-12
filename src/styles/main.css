@@ -1,213 +1,136 @@
 @import "tailwindcss";
 
-/**
-  Нормализация блочной модели
- */
- *,
- ::before,
- ::after {
-   box-sizing: border-box;
- }
- 
- /**
-   Убираем внутренние отступы слева тегам списков,
-   у которых есть атрибут class
-  */
- :where(ul, ol):where([class]) {
-   padding-left: 0;
- }
- 
- /**
-   Убираем внешние отступы body и двум другим тегам,
-   у которых есть атрибут class
-  */
- body,
- :where(blockquote, figure):where([class]) {
-   margin: 0;
- }
- 
- /**
-   Убираем внешние отступы вертикали нужным тегам,
-   у которых есть атрибут class
-  */
- :where(
-   h1,
-   h2,
-   h3,
-   h4,
-   h5,
-   h6,
-   p,
-   ul,
-   ol,
-   dl
- ):where([class]) {
-   margin-block: 0;
- }
- 
- :where(dd[class]) {
-   margin-left: 0;
- }
- 
- :where(fieldset[class]) {
-   margin-left: 0;
-   padding: 0;
-   border: none;
- }
- 
- /**
-   Убираем стандартный маркер маркированному списку,
-   у которого есть атрибут class
-  */
- :where(ul[class]) {
-   list-style: none;
- }
- 
- :where(address[class]) {
-   font-style: normal;
- }
- 
- /**
-   Обнуляем вертикальные внешние отступы параграфа,
-   объявляем локальную переменную для внешнего отступа вниз,
-   чтобы избежать взаимодействие с более сложным селектором
-  */
- p {
-   --paragraphMarginBottom: 24px;
- 
-   margin-block: 0;
- }
- 
- /**
-   Внешний отступ вниз для параграфа без атрибута class,
-   который расположен не последним среди своих соседних элементов
-  */
- p:where(:not([class]):not(:last-child)) {
-   margin-bottom: var(--paragraphMarginBottom);
- }
- 
- 
- /**
-   Упрощаем работу с изображениями и видео
-  */
- img,
- video {
-   display: block;
-   max-width: 100%;
-   height: auto;
- }
- 
- /**
-   Наследуем свойства шрифт для полей ввода
-  */
- input,
- textarea,
- select,
- button {
-   font: inherit;
- }
- 
- html {
-   /**
-     Пригодится в большинстве ситуаций
-     (когда, например, нужно будет "прижать" футер к низу сайта)
-    */
-   height: 100%;
-   /**
-     Убираем скачок интерфейса по горизонтали
-     при появлении / исчезновении скроллбара
-    */
- }
- 
- /**
-   Плавный скролл
-  */
- html,
- :has(:target) {
-   scroll-behavior: smooth;
- }
- 
- body {
-   /**
-     Пригодится в большинстве ситуаций
-     (когда, например, нужно будет "прижать" футер к низу сайта)
-    */
-   min-height: 100%;
-   /**
-     Унифицированный интерлиньяж
-    */
-   line-height: 1.5;
- }
- 
- /**
-   Нормализация высоты элемента ссылки при его инспектировании в DevTools
-  */
- a:where([class]) {
-   display: inline-flex;
- }
- 
- /**
-   Курсор-рука при наведении на элемент
-  */
- button,
- label {
-   cursor: pointer;
- }
- 
- /**
-   Приводим к единому цвету svg-элементы
-   (за исключением тех, у которых уже указан
-   атрибут fill со значением 'none' или начинается с 'url')
-  */
- :where([fill]:not(
-   [fill="none"],
-   [fill^="url"]
- )) {
-   fill: currentColor;
- }
- 
- /**
-   Приводим к единому цвету svg-элементы
-   (за исключением тех, у которых уже указан
-   атрибут stroke со значением 'none')
-  */
- :where([stroke]:not(
-   [stroke="none"],
-   [stroke^="url"]
- )) {
-   stroke: currentColor;
- }
- 
- /**
-   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
-  */
- svg * {
-   transition-property: fill, stroke;
- }
- 
- /**
-   Приведение рамок таблиц в классический 'collapse' вид
-  */
- :where(table) {
-   border-collapse: collapse;
-   border-color: currentColor;
- }
- 
- /**
-   Удаляем все анимации и переходы для людей,
-   которые предпочитают их не использовать
-  */
- @media (prefers-reduced-motion: reduce) {
-   *,
-   ::before,
-   ::after {
-     animation-duration: 0.01ms !important;
-     animation-iteration-count: 1 !important;
-     transition-duration: 0.01ms !important;
-     scroll-behavior: auto !important;
-   }
- }
+@layer components {
+  .menu {
+    --widthMenu: 100%;
+    --heightMenu: 10%;
 
- body {
-  font-family: var(--font-family-base);
- }
+    width: var(--widthMenu);
+    height: var(--heightMenu);
+    position: relative;
+    top: calc(100% - var(--heightMenu));
+    left: 0;
+    z-index: 10;
+  }
+
+  .menu-items {
+    --widthBorderContainer: 1px;
+
+    width: 100%;
+    height: calc(100% - var(--widthBorderContainer));
+  }
+
+  .menu-items-wrapper {
+    background-color: rgba(117, 130, 244, 1);
+  }
+
+  .add-city-container {
+    --widthBorderContainer: 11px;
+
+    width: calc(100% - var(--widthBorderContainer) / 4);
+    height: max(calc(100px - var(--widthBorderContainer)), calc(100% + 10px - var(--widthBorderContainer)));
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    translate: -50% 0;
+    z-index: 10;
+    background-image: linear-gradient(180deg, rgba(46, 51, 90, 1), rgba(28, 27, 51, 1));
+    clip-path: polygon(0.00% 100%, 3.42% 98.06%, 6.85% 95.37%, 10.48% 90.76%, 13.67% 84.12%, 16.13%
+      76.07%, 18.40% 66.68%, 20.14% 56.84%, 21.65% 47.20%, 23.44% 34.95%, 25.52%
+      22.72%, 28.05% 13.99%, 31.16% 7.33%,34.31% 2.60%,37.81% 0.00%,49.58% 0.00%,62.19%
+      0.00%,65.69% 2.60%,68.84% 7.33%,71.95% 13.99%,74.48% 22.72%,76.56% 34.95%,78.35%
+      47.20%,79.86% 56.84%,81.60% 66.68%,83.87% 76.07%,86.33% 84.12%,89.52%
+      90.76%,93.15% 95.37%,96.58% 98.06%,100.00% 100%);
+  }
+
+  .add-city-container-border {
+    width: 70%;
+    height: max(100px, calc(100% + 10px));
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    translate: -50% 0;
+    z-index: 10;
+    background-color: rgba(117, 130, 244, 0.5);
+    clip-path: polygon(0.00% 100%, 3.42% 98.06%, 6.85% 95.37%, 10.48% 90.76%, 13.67% 84.12%, 16.13%
+      76.07%, 18.40% 66.68%, 20.14% 56.84%, 21.65% 47.20%, 23.44% 34.95%, 25.52%
+      22.72%, 28.05% 13.99%, 31.16% 7.33%,34.31% 2.60%,37.81% 0.00%,49.58% 0.00%,62.19%
+      0.00%,65.69% 2.60%,68.84% 7.33%,71.95% 13.99%,74.48% 22.72%,76.56% 34.95%,78.35%
+      47.20%,79.86% 56.84%,81.60% 66.68%,83.87% 76.07%,86.33% 84.12%,89.52%
+      90.76%,93.15% 95.37%,96.58% 98.06%,100.00% 100%);
+  }
+
+  .add-city-button {
+    box-shadow: 
+      inset 1px 1px 0.5px #fff,
+      -10px -10px 20px 0 rgba(255, 255, 255, 0.5),
+      10px 10px 20px 0 rgba(13, 20, 49, 0.5)
+    ;
+    background-image: linear-gradient(140deg, rgba(255, 255, 255, 1), rgba(174, 174, 174, 1));
+  }
+
+  .weather-item {
+    width: 60px;
+    height: 146px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    align-items: center;
+    margin-block: 12px;
+    padding-inline: 8px;
+    padding-block: 15px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+      inset 1px 1px 0 0 rgba(255, 255, 255, 0.25), 
+      5px 4px 10px 0 rgba(0, 0, 0, 0.25)
+    ;
+  }
+}
+
+@layer utilities {
+  .clip-path-menu {
+    clip-path: polygon(0.00% 100%,0.00% 0.00%,3.64% 3.68%,7.37% 7.28%,11.20%
+      10.20%,14.99% 12.89%,18.91% 15.84%,22.69% 18.41%,26.61% 20.47%,30.52%
+      22.09%,34.23% 23.15%,38.20% 24.15%,42.26% 24.77%,46.07% 24.94%,50.00%
+      25.94%, 53.93% 24.94%, 57.74% 24.77%, 61.80% 24.15%, 65.77% 23.15%, 69.48%
+      22.09%, 73.39% 20.47%, 77.31% 18.41%, 81.09% 15.84%, 85.01% 12.89%, 88.80% 10.20%, 92.63%
+      7.28%, 96.36% 3.68%,100.00% 0.00%,100.00% 100%);
+  }
+
+  .background-weather {
+    background: 
+      conic-gradient(transparent 0deg 50deg, rgba(97, 47, 171, 1) 90deg 92deg, transparent 132deg 270deg, rgba(97, 47, 171, 1) 310deg 312deg, transparent 352deg 0deg) top/100% 50% no-repeat,
+      linear-gradient(152deg, rgba(46, 51, 90, 0.6) 0% 40%, rgba(28, 27, 51, 0.6) 60% 100%) top/100% 50% no-repeat
+    ;
+  }
+
+  .background-weather::before {
+    content: 'Ghbdtn';
+    width: 100%;
+    height: 100%;
+    position: absolute; 
+    top: 0;
+    left: 0;
+    border-top-left-radius: 44px;
+    border-top-right-radius: 44px;
+    background-color: rgba(0, 0, 0, 0.5);
+    filter: blur(50px);
+    z-index: -1;
+  }
+
+  .add-city-button-border {
+    outline: none;
+    border-radius: 50%;
+    background-image: linear-gradient(152deg, rgba(0, 0, 0, 1), rgba(255, 255, 255, 0.76));
+  }
+
+  .background-w-card {
+    background-color: rgba(72, 49, 157, 0.2);
+  }
+
+  .background-active-w-card {
+    background-color: rgba(72, 49, 157, 1);
+  }
+}

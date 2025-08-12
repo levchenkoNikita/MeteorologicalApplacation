@@ -9,22 +9,23 @@ const ActiveWeather = createContext();
 const WeatherForecast = ({ isActive, onClick, weatherList, parametrsList }) => {
 
     const [isActiveWeather, setIsActiveWeather] = useState(1);
-    
+    // bg-[#48319D]
     return (
         <div
             className={`
-                w-full h-[802px] bg-gradient-to-b from-[#2E335A] to-[#1C1B33] backdrop-blur-[50px] absolute top-full opacity-98
-                z-1 rounded-tr-[44px] rounded-tl-[44px] text-white bg-[#48319D]
-                flex flex-col items-center duration-[0.7s] 
+                w-full h-[802px] absolute top-full z-1 rounded-tr-[44px] rounded-tl-[44px] text-white 
+                flex flex-col items-center duration-[0.7s] opacity-98 
                 ${isActive ? 'translate-y-[-702px]' : 'translate-y-[-325px]'}
+
+                background-weather
             `}
         >
             <div className='w-full flex flex-col items-center gap-y-[15px] pb-[6px] border-b-[1px]'>
                 <BrowButton onClick={onClick} />
                 <ChangeForecastTime />
             </div>
-            <div className='w-full flex flex-col items-center gap-y-[15px] pb-[6px] border-b-[1px] overflow-y-scroll'>
-                <ActiveWeather.Provider value={ {isActiveWeather, setIsActiveWeather} }>
+            <div className='w-full flex flex-col items-center gap-y-[15px] pb-[6px] overflow-y-scroll'>
+                <ActiveWeather.Provider value={{ isActiveWeather, setIsActiveWeather }}>
                     <WeatherList weatherList={weatherList} />
                     <ParametrsList parametrsList={parametrsList} />
                 </ActiveWeather.Provider>

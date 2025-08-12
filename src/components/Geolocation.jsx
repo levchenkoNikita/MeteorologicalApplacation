@@ -4,7 +4,9 @@ const Geolocation = ({isGeolocation, onClick}) => {
 
 
     return (
-        <GeolocationButton isActive={isGeolocation} onClick={onClick}/>
+        <div className='size-full'>
+            <GeolocationButton isActive={isGeolocation} onClick={onClick}/>
+        </div>
     );
 }
 

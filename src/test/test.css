@@ -1,0 +1,8 @@
+.add-city {
+    clip-path: polygon(22% 9%, 44% 16%, 63% 21%, 82% 25%, 100% 29%, 100% 100%, 0 100%, 0 0);
+    background-color: black;
+}
+
+.add-city:hover {
+    background-color: red;
+}

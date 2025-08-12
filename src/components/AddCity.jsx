@@ -8,17 +8,20 @@ const AddCity = ({ onClickAddCity }) => {
     function handleClick() {
         setIsActive(!isActive);
     }
-    
-    return (
-        <div
-            className={`
-                w-[200px] h-full bg-[#1C1B33] 
-                bg-[url('./assets/images/addcity-back-button.png')]
-                flex items-center justify-center shrink-0 
+
+    return ( //add-city-container-border
+        <>
+            <div className='add-city-container-border flex items-center justify-center'>
+                <div
+                    className={`
+                add-city-container flex items-center justify-center
             `}>
-            <AddCityButton isActive={isActive} onClick={handleClick}/>
-            <AddCityLayer isActive={isActive} onClickAddCity={(valueInput, valueSelect, valueSave) => onClickAddCity(valueInput, valueSelect, valueSave)}/>
-        </div>
+                    <AddCityButton isActive={isActive} onClick={handleClick} />
+
+                </div>
+            </div>
+            <AddCityLayer isActive={isActive} onClickAddCity={(valueInput, valueSelect, valueSave) => onClickAddCity(valueInput, valueSelect, valueSave)} />
+        </>
     );
 }
 

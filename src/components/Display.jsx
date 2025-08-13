@@ -6,7 +6,7 @@ const Display = ({ city, temperature }) => {
     const nowHour = currentTime.getHours();
 
     return (
-        <div className="w-full bg-transparent absolute z-10 flex flex-col items-center justify-center text-white">
+        <div className="w-full bg-transparent absolute z-10 flex flex-col items-center justify-center text-white mt-[80px]">
             <Time>
                 {temperature[nowHour].temperature}
             </Time>

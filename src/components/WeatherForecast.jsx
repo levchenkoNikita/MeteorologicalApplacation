@@ -13,14 +13,13 @@ const WeatherForecast = ({ isActive, onClick, weatherList, parametrsList }) => {
     return (
         <div
             className={`
-                w-full h-[802px] absolute top-full z-1 rounded-tr-[44px] rounded-tl-[44px] text-white 
-                flex flex-col items-center duration-[0.7s] opacity-98 
-                ${isActive ? 'translate-y-[-702px]' : 'translate-y-[-325px]'}
-
+                w-full h-[802px] absolute top-full z-1 text-white rounded-tr-[44px] rounded-tl-[44px] 
+                flex flex-col items-center duration-[0.7s] opacity-98 overflow-hidden
+                ${isActive ? 'translate-y-[-80vh]' : 'translate-y-[-325px]'}
                 background-weather
             `}
         >
-            <div className='w-full flex flex-col items-center gap-y-[15px] pb-[6px] border-b-[1px]'>
+            <div className='w-full flex flex-col items-center gap-y-[15px] pb-[6px] rounded-tr-[44px] rounded-tl-[44px] relative weather-header'>
                 <BrowButton onClick={onClick} />
                 <ChangeForecastTime />
             </div>

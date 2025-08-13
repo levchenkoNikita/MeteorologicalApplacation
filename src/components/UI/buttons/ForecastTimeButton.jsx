@@ -1,10 +1,11 @@
-const ForecastTimeButton = ({children}) => {
+const ForecastTimeButton = ({ children, isActive }) => {
 
 
     return (
         <button
             className={`
-                w-full h-[20px]
+                w-full h-[20px] relative
+                ${isActive ? 'forecast-time' : ''}
             `}
         >
             {children}

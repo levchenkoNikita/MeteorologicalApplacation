@@ -6,7 +6,7 @@ const BrowButton = ({onClick}) => {
             onClick={onClick}
             >
             <div className={`
-                w-full h-[5px] bg-amber-400 rounded-[10px]
+                w-full h-[5px] bg-[rgba(0,0,0,0.3)] rounded-[10px]
             `}>
 
             </div>
